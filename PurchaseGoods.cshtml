@@ -1,0 +1,79 @@
+@model DisasterAlleviationFoundationProject.Models.PurchasesOfGood;
+@{
+    ViewData["Title"] = "PurchaseGoods";
+}
+<div class="text-white">
+    <h1>Purchase Goods</h1>
+    <form method="post">
+        <div>
+            <div class="row">
+                <div class="col-8">
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="DateGoodsPurchased">Puchase Date</label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="DateGoodsPurchased" class="form-control" />
+                            <span asp-validation-for="DateGoodsPurchased" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="NumberOfitems">Number of Items to Purchase</label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="NumberOfitems" class="form-control" />
+                            <span asp-validation-for="NumberOfitems" class="text-danger"></span>
+                        </div>
+
+                    </div>
+
+                     <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="TotalAmountOfMoney">Total Amount of money</label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="TotalAmountOfMoney" class="form-control" />
+                            <span asp-validation-for="TotalAmountOfMoney" class="text-danger"></span>
+                        </div>
+
+                    </div>
+
+                     <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="CategoryOfGoodsId">Category Of Goods</label>
+                        </div>
+                        <div class="col-8">
+                            <select asp-for="CategoryOfGoodsId" class="form-control" asp-items="ViewBag.goodId"></select>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="DisasterId">Disaster Purchased For</label>
+                        </div>
+                        <div class="col-8">
+                            <select asp-for="DisasterId" class="form-control" asp-items="ViewBag.disasterId"></select>
+                        </div>
+
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="form-group row">
+                    <div class="col-8 offset-4 row">
+                        <div class="row">
+                            <input type="submit" class="btn btn-success m-2" value="Purchase" />
+                            <a asp-action="Index" class="btn btn-info m-2">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</form>
+</div>

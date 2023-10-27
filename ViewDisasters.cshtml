@@ -1,0 +1,44 @@
+@model IEnumerable<DisasterAlleviationFoundationProject.Models.DisastersActive>
+@{
+    ViewData["Title"] = "ViewDisasters";
+}
+
+<div>
+
+    @if (Model.Count() > 0)
+    {
+        <h1>Active Disasters</h1>
+        <table class="table table-striped" style="width:100%;height:100px;">
+            <thead>
+                <tr>
+                    <th>Location</th>
+                    <th>Description</th>
+                    <th>Disaster Start Date</th>
+                    <th>Disaster End Date</th>
+                    <th>Required Aid Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var disaster in Model)
+                {
+                    <tr>
+                        <td width="20%">@disaster.Disasterlocation</td>
+                        <td width="40%">@disaster.DisasterDescription</td>
+                        <td width="20%">@disaster.DisasterStartDate</td>
+                        <td width="20%">@disaster.DisasterEnddate</td>
+                        <td width="30%">@disaster.RequiredAidType</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+       <a asp-action="Index" class="btn btn-info m-2">Back</a>
+        }
+    else
+    {
+        <p> No Records.</p>
+        
+       <a asp-action="Index"  class="btn btn-info m-2">Back</a>
+        
+    }
+
+</div>

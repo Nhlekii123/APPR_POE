@@ -1,0 +1,54 @@
+@model DisasterAlleviationFoundationProject.Models.MoneyDonationsAllocation;
+@{
+    ViewData["Title"] = "MoneyDonatedAllocation";
+}
+<div class="text-white">
+    <h1>Allocation Of Money</h1>
+    <h2>Money Available: R <label>@ViewBag.moneyAmount</label></h2>
+    <form method="post">
+
+        <div>
+            <div class="row">
+                <div class="col-8">
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="DateMoneyAllocated">Allocation date</label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="DateMoneyAllocated" class="form-control" />
+                            <span asp-validation-for="DateMoneyAllocated" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="AmountOfMoney">Amount of Money</label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="AmountOfMoney" class="form-control" />
+                            <span asp-validation-for="AmountOfMoney" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    
+
+
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="form-group row">
+                    <div class="col-8 offset-4 row">
+                        <div class="row">
+
+                            <input type="submit" class="btn btn-success m-2" value="Allocate Money" />
+                            <a asp-action="Index"  class="btn btn-info m-2">Back</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</form>
+</div>

@@ -1,0 +1,28 @@
+@model DisasterAlleviationFoundationProject.Models.UserAuthentication;
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1 class="text-white">Authorised Users Login</h1>
+<div class="container justify-content-center pb-3">
+    <div class="text-white">
+        <form method="post" asp-action="Login">
+            <div class="row">
+                <label>User Name: </label>
+                <input asp-for="PersonName" class="form-control" type="email"/>
+            </div>
+            <div class="row">
+                <label>Password</label>
+                <input asp-for="PersonPassword" class="form-control" type="password"/>
+            </div>
+            <div class="row" style="margin-top:15px">
+                <input type="submit" class="btn btn-info" value="Login" />
+            </div>
+        </form>
+
+        <div>
+            <p><a asp-action="AddAccount">Add account</a></p>
+        </div>
+    </div>
+
+</div>

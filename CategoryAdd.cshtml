@@ -1,0 +1,40 @@
+@model DisasterAlleviationFoundationProject.Models.CategoryOfGood;
+@{
+    ViewData["Title"] = "CategoryAdd";
+}
+
+<div class="text-white">
+    <h1>Category Of Goods</h1>
+    <form method="post">
+
+        <div>
+            <div class="row">
+                <div class="col-8">
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="CategoryOfGoodName">Category Name</label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="CategoryOfGoodName" class="form-control" />
+                            <span asp-validation-for="CategoryOfGoodName" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="form-group row">
+                    <div class="col-8 offset-4 row">
+                        <div class="row">
+                            <input type="submit" class="btn btn-success m-2" value="Add Category" />
+                            <a asp-action="Index"  class="btn btn-info m-2">Back</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</form>
+</div>

@@ -1,0 +1,69 @@
+﻿﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor Accessor;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+     @{
+        if (@Accessor.HttpContext.Request.Cookies["User"] != null && @Accessor.HttpContext.Request.Cookies["User"].ToString().Equals("Authenticated"))
+        {
+            <h2>Money Available: R <label>@ViewBag.moneyAmount</label></h2>
+            <table class="table table-bordered" style="width:100%;height:100px;">
+                    <thead>
+                        <tr>
+                            <th>Money</th>
+                            <th>Goods</th>
+                            <th>Disaster</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td width="40%">
+                                <a class="btn btn-rounded button-28" asp-action="MoneyDonate" >Money Donation</a>  
+                            </td>
+                            <td width="40%">
+                                <a class="btn btn-rounded button-28" asp-action="GoodsDonate">Goods Donation</a>
+                            </td>
+                            <td width="40%">
+                                <a class="btn btn-rounded button-28" asp-action="DisasterAdd">Disaster Add</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="40%">
+                                <a class="btn btn-rounded button-28" asp-action="ViewMoney">View Money Donated</a>
+                            </td>
+                            <td width="40%">
+                                <a class="btn btn-rounded button-28" asp-action="ViewGoods">View Goods Donated</a>
+                            </td>
+                            <td width="40%">
+                                <a class="btn btn-rounded button-28" asp-action="ViewDisasters">View Active Disasters</a>
+                            </td>
+                        </tr>
+
+                         <tr>
+                            <td width="40%">
+                                <a class="btn btn-rounded button-28" asp-action="MoneyDonatedAllocation">Allocate Money Donated</a>
+                            </td>
+                            <td width="40%">
+                                <a class="btn btn-rounded button-28" asp-action="GoodsDonatedAllocation">Allocate Goods Donated</a>
+                            </td>
+                            <td width="40%">
+                                <a class="btn btn-rounded button-28" asp-action="PurchaseGoods">Purchase Goods for Disasters</a>
+                            </td>
+                        </tr>
+                    
+                    
+                    </tbody>
+                </table>
+                <a class="btn btn-rounded button-28 m-4" asp-action="CategoryAdd">Add Category</a>
+                <a class="btn btn-rounded btn-danger btn-lg btn-block" asp-action="Logout">Logout</a>
+        }else{
+            <p></p>
+            <h2>For Other Funtions please login</h2>
+            <a class="btn btn-lg button-28 btn-rounded" asp-action="Login">User Login</a>
+        }
+     }
+</div>
+</div>

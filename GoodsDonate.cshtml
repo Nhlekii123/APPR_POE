@@ -1,0 +1,92 @@
+@model DisasterAlleviationFoundationProject.Models.GoodsDonation;
+@{
+    ViewData["Title"] = "GoodsDonation";
+}
+<div class="text-white">
+    <h1>Donation Of Goods</h1>
+    <form method="post">
+
+        <div>
+            <div class="row">
+                <div class="col-8">
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="DateGoodsDonated">Donation date</label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="DateGoodsDonated" class="form-control" />
+                            <span asp-validation-for="DateGoodsDonated" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="NumberOfitems">Number of Items to Donate</label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="NumberOfitems" class="form-control" />
+                            <span asp-validation-for="NumberOfitems" class="text-danger"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="GoodsDonatedDescription">Goods Description</label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="GoodsDonatedDescription" class="form-control" />
+                            <span asp-validation-for="GoodsDonatedDescription" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                     <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="CategoryOfGoodsId">Category Of Goods</label>
+                        </div>
+                        <div class="col-8">
+                            <select asp-for="CategoryOfGoodsId" class="form-control" asp-items="ViewBag.goodId"></select>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="GoodsDonor"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="GoodsDonor" class="form-control" id="donor" />
+
+                            <div class="checkbox">
+                                <label>@Html.CheckBox("Anonymous",false, new { @class = "form-check-input", onchange="DisableText(this)" })&nbsp; Remain Anonymous</label>
+                            </div>
+                            <script type="text/javascript">
+                                function DisableText(e) {
+                                    if (e.checked) {
+                                        document.getElementById("donor").value = 'Anonymous';
+                                    }else{
+                                        document.getElementById("donor").value = '';
+                                    }
+                                    document.getElementById("donor").disabled = e.checked;
+                                    
+                                }
+
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="form-group row">
+                    <div class="col-8 offset-4 row">
+                        <div class="row">
+                            <input type="submit" class="btn btn-success m-2" value="Donation Of Goods" />
+                            <a asp-action="Index" asp-controller="AuthorisedUsers" class="btn btn-info m-2">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</form>
+</div>

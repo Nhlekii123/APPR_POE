@@ -1,0 +1,61 @@
+@model DisasterAlleviationFoundationProject.Models.GoodsDonationsAllocation;
+@{
+    ViewData["Title"] = "GoodsDonatedAllocation";
+}
+<div class="text-white">
+    <h1>Allocation Of Goods</h1>
+    <form method="post">
+
+        <div>
+            <div class="row">
+                <div class="col-8">
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="DateGoodsAllocated">Allocation Date</label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="DateGoodsAllocated" class="form-control" />
+                            <span asp-validation-for="DateGoodsAllocated" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="NumberOfitems">Number of Items to Allocate</label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="NumberOfitems" class="form-control" />
+                            <span asp-validation-for="NumberOfitems" class="text-danger"></span>
+                        </div>
+
+                    </div>
+
+                
+
+                     <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="CategoryOfGoodsId">Category Of Goods</label>
+                        </div>
+                        <div class="col-8">
+                            <select asp-for="CategoryOfGoodsId" class="form-control" asp-items="ViewBag.goodId"></select>
+                        </div>
+
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="form-group row">
+                    <div class="col-8 offset-4 row">
+                        <div class="row">
+                            <input type="submit" class="btn btn-success m-2" value="Allocate Goods" />
+                            <a asp-action="Index"  class="btn btn-info m-2">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</form>
+</div>

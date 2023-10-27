@@ -1,0 +1,77 @@
+@model DisasterAlleviationFoundationProject.Models.MoneyDonation;
+@{
+    ViewData["Title"] = "MoneyDonation";
+}
+<div class="text-white">
+    <h1>Donation Of Money</h1>
+    <form method="post">
+
+        <div>
+            <div class="row">
+                <div class="col-8">
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="DateMoneyDonated">Donation date</label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="DateMoneyDonated" class="form-control" />
+                            <span asp-validation-for="DateMoneyDonated" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="AmountOfMoney">Amount of Money</label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="AmountOfMoney" class="form-control" />
+                            <span asp-validation-for="AmountOfMoney" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="MonerDonor"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="MonerDonor" class="form-control" id="donor" />
+
+                            <div class="checkbox">
+                                <label>@Html.CheckBox("Anonymous",false, new { @class = "form-check-input", onchange="DisableText(this)" })&nbsp; Remain Anonymous</label>
+                            </div>
+                            <script type="text/javascript">
+                                function DisableText(e) {
+                                    if (e.checked) {
+                                        document.getElementById("donor").value = 'Anonymous';
+                                    }else{
+                                        document.getElementById("donor").value = '';
+                                    }
+                                    document.getElementById("donor").disabled = e.checked;
+                                    
+                                }
+
+                            </script>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="form-group row">
+                    <div class="col-8 offset-4 row">
+                        <div class="row">
+
+                            <input type="submit" class="btn btn-success m-2" value="Money Donate" />
+                            <a asp-action="Index" asp-controller="AuthorisedUsers" class="btn btn-info m-2">Back</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</form>
+</div>

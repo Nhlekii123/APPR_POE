@@ -1,0 +1,81 @@
+@model DisasterAlleviationFoundationProject.Models.DisastersActive;
+@{
+    ViewData["Title"] = "DisasterAdd";
+}
+
+<div class="text-white">
+    <h1>New Disaster Addition</h1>
+    <form method="post">
+        <div>
+            <div class="row">
+                <div class="col-8">
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="Disasterlocation">Location</label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="Disasterlocation" class="form-control" />
+                            <span asp-validation-for="Disasterlocation" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="DisasterDescription">Description</label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="DisasterDescription" class="form-control" />
+                            <span asp-validation-for="DisasterDescription" class="text-danger"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="DisasterStartDate">Disaster Start Date</label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="DisasterStartDate" class="form-control" />
+                            <span asp-validation-for="DisasterStartDate" class="text-danger"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="DisasterEnddate">Disaster End Date</label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="DisasterEnddate" class="form-control" />
+                            <span asp-validation-for="DisasterEnddate" class="text-danger"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="RequiredAidType">Required Aid Type</label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="RequiredAidType" class="form-control" />
+                            <span asp-validation-for="RequiredAidType" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="form-group row">
+                    <div class="col-8 offset-4 row">
+                        <div class="row">
+                            <input type="submit" class="btn btn-success m-2" value="Add Disaster" />
+                            <a asp-action="Index"  class="btn btn-info m-2">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</form>
+</div>
